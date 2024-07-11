@@ -48,11 +48,12 @@ Ri = port_3x2b; % test asset
 % load those 200 randome seeds selected by cross-validations
 % For each randome seed in 1:200, we run a cross-validation and find the
 % best tuning parameter.
-% 这里是原始参数
-% load tune_figure1.mat
 
-% 载入复刻的新参数
-load tune_figure1_new.mat
+% 这里是原始参数
+load tune_figure1.mat
+
+% % 载入复刻的新参数
+% load tune_figure1_new.mat
 
 %% save the 1st selection for the 1st factor
 % the 1st selections are the same for all factors
@@ -74,10 +75,10 @@ for k = 1:200
     gt = TestFactor(:,1)'; % test factor
     ht = ControlFactor'; % control factor
     
-%     model_ds = DS(Ri', gt, ht,-log(tune_sel_150(k,1)),-log(tune_sel_150(k,2)),...
-%         1,seed_num);
-    model_ds = DS(Ri', gt, ht,-log(optimal_parameters(k,1)),-log(optimal_parameters(k,2)),...
+    model_ds = DS(Ri', gt, ht,-log(tune_sel_150(k,1)),-log(tune_sel_150(k,2)),...
         1,seed_num);
+%     model_ds = DS(Ri', gt, ht,-log(optimal_parameters(k,1)),-log(optimal_parameters(k,2)),...
+%         1,seed_num);
     
     sel11(k, model_ds.sel1) = 1;
     
@@ -104,5 +105,8 @@ fig1.PaperSize = [fig_pos(3) fig_pos(4)];
 
 
 % # changed store path in output_new/main
-cd ../../output/output_new/main
-saveas(fig1,'Figure1_new','pdf');
+% cd ../../output/output_new/main
+% saveas(fig1,'Figure1_new','pdf');
+
+cd ../../output/output_original/main
+saveas(fig1,'Figure1','pdf');

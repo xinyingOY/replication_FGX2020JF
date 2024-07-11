@@ -61,9 +61,10 @@ Ri = port_3x2b; % test asset
 % 这里是原始参数
 load tune_main.mat
 
-% 载入复刻的新参数
-load log_average_tune.mat
-tune_center=exp(log_average_tune);
+% % 载入复刻的新参数
+% load log_average_tune.mat
+% tune_center=exp(log_average_tune);
+
 % choose control factors before 2012
 ContrlList = find(year_pub < 2012);
 ControlFactor = factors(:,ContrlList);
@@ -148,6 +149,9 @@ disp(result)
 
 % output Table as a CSV file
 % # changed store path in output_new/main
-cd ../../output/output_new/main
-% writetable(result, 'main.csv')
-writetable(result, 'main_new.csv')
+% cd ../../output/output_new/main
+% writetable(result, 'main_new.csv')
+
+cd ../../output/output_original/main
+writetable(result, 'main.csv')
+
