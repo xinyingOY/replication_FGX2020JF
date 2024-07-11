@@ -5,4 +5,4 @@
 
 原始输出结果在'output/output_original'文件夹中
 
-用于复刻的新参数存储在'main/new_tune'文件夹中
+用于复刻的新参数存储在'code/main/new_tune'文件夹中
